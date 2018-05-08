@@ -1,0 +1,16 @@
+{
+  "dataStudio": {
+    "name": "Rewarded Ads Reports by AppLift",
+    "company": "AppLift GmbH",
+    "companyUrl": "https://applift.com",
+    "logoUrl": "https://idsp.applift.com/logo.svg",
+    "addonUrl": "https://www.applift.com/privacy-policy",
+    "supportUrl": "https://www.applift.com/contact",
+    "description": "Get performance metrics for your Rewarded Ads campaigns",
+    "shortDescription": "Understand your performance",
+    "authType": ["NONE"],
+  },
+  "urlFetchWhitelist": [
+    "https://pull.applift.com/"
+  ]
+}
