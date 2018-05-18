@@ -1,0 +1,7 @@
+id_scaleway
+id_scaleway.pub
+Untitled
+.idea/*
+.vscode/*
+node_modules/*
+package-lock.json

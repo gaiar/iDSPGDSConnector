@@ -3,12 +3,15 @@
     "name": "Rewarded Ads Reports by AppLift",
     "company": "AppLift GmbH",
     "companyUrl": "https://applift.com",
-    "logoUrl": "https://idsp.applift.com/logo.svg",
+    "logoUrl": "https://s3.amazonaws.com/applift-idsp-media/images/logo.png",
     "addonUrl": "https://www.applift.com/privacy-policy",
     "supportUrl": "https://www.applift.com/contact",
     "description": "Get performance metrics for your Rewarded Ads campaigns",
     "shortDescription": "Understand your performance",
-    "authType": ["NONE"]
+    "authType": ["NONE"],
+    "templates":{
+      "default":"1jtsDTF0Gua8GVWQxoCC2GQyUTlEnuead"
+    }
   },
   "urlFetchWhitelist": [
     "https://pull.applift.com/"
