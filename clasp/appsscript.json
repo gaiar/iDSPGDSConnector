@@ -9,8 +9,8 @@
     "description": "Get performance metrics for your Rewarded Ads campaigns",
     "shortDescription": "Understand your performance",
     "authType": ["NONE"],
-    "templates":{
-      "default":"1jtsDTF0Gua8GVWQxoCC2GQyUTlEnuead"
+    "templates": {
+      "default": "1jtsDTF0Gua8GVWQxoCC2GQyUTlEnuead"
     }
   },
   "urlFetchWhitelist": [
