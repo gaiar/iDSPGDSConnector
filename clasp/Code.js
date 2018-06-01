@@ -6,7 +6,7 @@ var connector = connector || {};
  * Apps Script Cache expiration time (in seconds) for UrlFetch response.
  * @const
  */
-connector.cacheExpiration = 1 * 60;
+connector.cacheExpiration = 5 * 60;
 
 /** @const */
 connector.defaultTag = 'google-data-studio';
@@ -300,7 +300,18 @@ connector.getCachedData = function(request) {
     ];
     url = url.join('');
     try {
-      var response = UrlFetchApp.fetch(url);
+
+      //Trying to stay inside rate limits
+      var randnumber = Math.random()*5000;
+      Utilities.sleep(randnumber);
+
+
+      //TODO: Add while true retry
+      var response = UrlFetchApp.fetch(url, {muteHttpExceptions: true }); 
+      if (response.getResponseCode() != 200) { 
+        console.error('CSV URL result code', response.getResponseCode());
+        console.error('CSV URL result message',response.getContentText());  
+      }
       console.log('CSV result', response.getResponseCode());
 
       var csvData = Utilities.parseCsv(response, ',');
@@ -477,3 +488,4 @@ connector.logAndExecute = function(functionName, parameter) {
 
   return returnObject;
 };
+
