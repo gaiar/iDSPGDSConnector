@@ -6,7 +6,7 @@ var connector = connector || {};
  * Apps Script Cache expiration time (in seconds) for UrlFetch response.
  * @const
  */
-connector.cacheExpiration = 5 * 60;
+connector.cacheExpiration = 10 * 60;
 
 /** @const */
 connector.defaultTag = 'google-data-studio';
@@ -289,7 +289,7 @@ connector.getCachedData = function(request) {
     var sourceData = cachedData;
     console.log('Using cache');
   } else {
-
+    console.log('No data in cache')
     var url = [
       'https://pull.applift.com/reports/',
       request.configParams.apiToken,
@@ -302,7 +302,7 @@ connector.getCachedData = function(request) {
     try {
 
       //Trying to stay inside rate limits
-      var randnumber = Math.random()*5000;
+      var randnumber = Math.random()*25000;
       Utilities.sleep(randnumber);
 
 
