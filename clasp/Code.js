@@ -302,15 +302,16 @@ connector.getCachedData = function(request) {
     try {
 
       //Trying to stay inside rate limits
-      var randnumber = Math.random()*25000;
+      var randnumber = Math.random()*5000;
       Utilities.sleep(randnumber);
 
 
       //TODO: Add while true retry
-      var response = UrlFetchApp.fetch(url, {muteHttpExceptions: true }); 
+      var response = UrlFetchApp.fetch(url, {muteHttpExceptions : true}); 
       if (response.getResponseCode() != 200) { 
         console.error('CSV URL result code', response.getResponseCode());
-        console.error('CSV URL result message',response.getContentText());  
+        console.error('CSV URL result message',response.getContentText());
+        console.error('CSV Request headers', response.getHeaders());  
       }
       console.log('CSV result', response.getResponseCode());
 
@@ -320,11 +321,23 @@ connector.getCachedData = function(request) {
       cache.put(cacheKey, sourceData, connector.cacheExpiration);
     } catch (e) {
       console.error('Fetching CSV', e);
+      console.error('CSV URL result code', response.getResponseCode());
+      console.error('CSV URL result message',response.getContentText());
+      console.error('CSV Request headers', response.getHeaders());  
       connector.throwError('Unable to get data from Reporting API', true);
     }
   }
   return sourceData;
 };
+
+connector.getURL = function () {
+
+}
+
+connector.fetch = function (url) {
+
+}
+
 
 connector.ChunkyCache = function(cache, chunkSize) {
   return {
